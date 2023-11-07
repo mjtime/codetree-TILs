@@ -7,6 +7,7 @@ for i in range(n):
     loc = int(loc)
     user_arr.append([loc, alpha])
     max_idx = max(max_idx, loc)
+max_idx = max(max_idx, k+1)
 arr = [0] * max_idx
 
 for idx, alpha in user_arr:
