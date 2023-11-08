@@ -10,7 +10,7 @@ for line in arr:
     line_tmp = ''
     for i in range(m):
         if line[i] != char:
-            char = arr[i]
+            char = line[i]
             end = i
             line_tmp += line[start:end]*k
             start = i
