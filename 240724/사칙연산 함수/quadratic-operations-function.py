@@ -11,11 +11,11 @@ def cal(x, y, z):
         result = x//z
     elif y == '*':
         result = x * z
-    else:
-        return "False"
     return str(result)
 
 if o == '/' and c==0:
     print()
+elif o not in ['+', '-', '*', '/']:
+    print("False")
 else:
     print(str(a), o, str(c), '=', cal(a, o, c))
