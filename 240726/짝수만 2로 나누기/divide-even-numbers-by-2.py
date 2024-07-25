@@ -9,4 +9,4 @@ def half(arr):
         else:
             print(i, end=' ')
 
-half(_list)
+half(_list[:])
