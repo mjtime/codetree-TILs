@@ -1,12 +1,12 @@
 _str = input()
 
-def is_palindrome(_str):
-    reverse_str = ''
-    for i in range(len(_str)-1, -1, -1):
-        reverse_str += _str[i]
-    return reverse_str
+def is_palindrome(s):
+    for i in range(len(s)):
+        if s[i] != s[len(s) - i - 1]:
+            return False
+    return True
 
-if is_palindrome(_str) == _str:
+if is_palindrome(_str):
     print("Yes")
 else:
     print("No")
