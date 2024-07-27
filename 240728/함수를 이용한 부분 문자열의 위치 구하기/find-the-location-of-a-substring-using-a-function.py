@@ -11,13 +11,14 @@ def find_str(a, w):
     idx = 0
 
     for i in range(len(a)):
-        if a[i] == w[idx]:
-            idx += 1
-
-            if idx == len(w):
-                return i - idx +1
-        else:
-            idx = 0
+        for j in range(idx, len(w)):
+            if a[i] == w[j]:
+                idx += 1
+                if idx == len(w):
+                    return i - idx +1
+                break
+            else:
+                idx = 0
         
             
 
