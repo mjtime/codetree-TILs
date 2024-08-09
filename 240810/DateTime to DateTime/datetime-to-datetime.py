@@ -2,14 +2,14 @@ d1, h1, m1 = 11, 11, 11
 d2, h2, m2 = map(int, input().split())
 
 def check_day():
-    if d1<=d2:
+    if d1<d2:
         return True
-    elif h1<=h2:
-        return False
-    elif m1 <= m2:
-        return False
+    elif d1==d2 and h1<h2:
+        return True
+    elif d1==d2 and h1==h2 and m1<=m2 :
+        return True
     else:
-        return True
+        return False
 # 1day = 24 hour = 1440min
 if check_day():
     day = d2 - d1
