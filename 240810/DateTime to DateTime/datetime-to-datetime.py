@@ -2,11 +2,11 @@ d1, h1, m1 = 11, 11, 11
 d2, h2, m2 = map(int, input().split())
 
 def check_day():
-    if d1>d2:
+    if d1<=d2:
+        return True
+    elif h1<=h2:
         return False
-    elif h1>h2:
-        return False
-    elif m1 > m2:
+    elif m1 <= m2:
         return False
     else:
         return True
