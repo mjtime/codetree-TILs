@@ -3,7 +3,6 @@ arr = []
 
 while True:
     if n < 1:
-        # arr.append(1)
         break
     
     arr.append(n % b)
