@@ -5,8 +5,8 @@ arr = [0 for _ in range(200)]
 
 for _ in range(n):
     a, b = map(int, input().split())
-    a += offset - 1
-    b += offset - 1
+    a += offset
+    b += offset
     arr[a:b] = [x + 1 for x in arr[a:b]]
 
 print(max(arr))
