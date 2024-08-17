@@ -9,18 +9,18 @@ for i in range(n):
     color_num = -1
     go, dic = input().split()
     go = int(go)
+    
     if dic == 'R':
         start = now
         end = now + go
-        color = 'B'
-        color_num = 1
+        color, color_num = 'B', 1
+        now = end - 1
     else:
         start = now - go + 1
         end = now + 1
-        color = 'W'
-        color_num = 0
+        color, color_num = 'W', 0
+        now = start
     
-    # print(start, end)
     for i in range(start, end):
         if arr_color[i] == 'G':
             continue
@@ -29,14 +29,4 @@ for i in range(n):
         if arr_num[i][0] >= 2 and arr_num[i][1] >=2:
             arr_color[i] = 'G'
 
-    if dic == 'R':
-        now = end - 1
-    else:
-        now = start
-    # print('now>',now)
-    # print(arr_num[ARR_LEN//2 - 5: ARR_LEN//2 + 6])
-    # print()
-
-# print(arr_num[ARR_LEN//2 - 5: ARR_LEN//2 + 6])
-# print(arr_color[ARR_LEN//2 - 5: ARR_LEN//2 + 6])
 print(arr_color.count('W'), arr_color.count('B'), arr_color.count('G'))
