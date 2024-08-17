@@ -22,22 +22,17 @@ for i in range(n):
     
     # print(start, end)
     for i in range(start, end):
-        # if i == end - 1:
-        #     if dic == 'R':
-        #         now = end
-        #     else:
-        #         now = end - i
         if arr_color[i] == 'G':
-            break
+            continue
         arr_num[i][color_num] += 1
         arr_color[i] = color
         if arr_num[i][0] >= 2 and arr_num[i][1] >=2:
             arr_color[i] = 'G'
 
     if dic == 'R':
-        now = now + go - 1
+        now = end - 1
     else:
-        now = now - go + 1
+        now = start
     # print('now>',now)
     # print(arr_num[ARR_LEN//2 - 5: ARR_LEN//2 + 6])
     # print()
