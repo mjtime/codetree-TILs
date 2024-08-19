@@ -17,7 +17,6 @@ drow(a1, b1, a2, b2, 0)
 
 for i, (x, y) in enumerate(points):
     point_check[i] = rects[x][y]
-    # print('-', x, y, rects[x][y])
 
 min_x, max_x = x1, x2
 min_y, max_y = y1, y2 
@@ -52,8 +51,6 @@ elif point_check.count(0) > 3:
     print(0)
     exit(0)
 
-# print(rects[x1+1][1000:1007])
-# print(min_x,min_y,max_x,max_y)
 area = (max_x-min_x)*(max_y-min_y)
 
 print(area)
