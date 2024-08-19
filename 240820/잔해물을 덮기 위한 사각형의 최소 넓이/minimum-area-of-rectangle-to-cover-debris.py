@@ -25,7 +25,6 @@ min_y, max_y = y1, y2
 if point_check.count(0) == 2:
     # y 증가
     if point_check[0] == 0 and point_check[3] == 0:
-        print(1)
         for dy in range(y1, y2):
             if rects[x1][dy] == 1:
                 min_y = dy
@@ -33,21 +32,18 @@ if point_check.count(0) == 2:
 
     # y 감소
     elif point_check[1] == 0 and point_check[2] == 0:
-        print(2)
         for dy in range(y2-1, y1-1, -1):
             if rects[x1][dy] == 1:
                 max_y = dy+1
                 break
     # x 증가
     elif point_check[0] == 0 and point_check[1] == 0:
-        print(3)
         for dx in range(x1, x2):
             if rects[dx].count(1) > 0:
                 min_x = dx
                 break
     # x 감소
     elif point_check[2] == 0 and point_check[3] == 0:
-        print(4)
         for dx in range(x2-1, x1-1, -1):
             if rects[dx].count(1) > 0:
                 max_x = dx + 1
