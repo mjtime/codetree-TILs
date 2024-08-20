@@ -5,5 +5,6 @@ for _ in range(m):
     num = int(input())
     students[num - 1] += 1
     if k in students:
-        ans = students.index(k)+1
+        ans = students.index(k) + 1
+        break
 print(ans)
