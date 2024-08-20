@@ -22,7 +22,10 @@ def input_move(arr, n):
 input_move(arr_a, n)
 input_move(arr_b, m)
 
+ans = -1
 for i in range(1, min(len(arr_a), len(arr_b))):
     if arr_a[i] == arr_b[i]:
-        print(i)
+        ans = i
         break
+
+print(ans)
