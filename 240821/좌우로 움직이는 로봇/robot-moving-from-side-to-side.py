@@ -18,12 +18,22 @@ move(arr_a, n)
 move(arr_b, m)
 
 cnt = 0
-check = False
-for i in range(1, min(len(arr_a), len(arr_b))):
-    if arr_a[i] == arr_b[i] and check==False:
+check = True
+max_arr = 0
+idx_a = 0
+idx_b = 0
+for i in range(1, max(len(arr_a), len(arr_b))):
+
+    if arr_a[idx_a] == arr_b[idx_b] and check==False:
         cnt += 1
+        check = True
+    elif arr_a[idx_a] == arr_b[idx_b] and check==True:
         check = True
     else:
         check=False
+    if idx_a < len(arr_a) - 1:
+        idx_a += 1
+    if idx_b < len(arr_b) - 1:
+        idx_b += 1
 
 print(cnt)
