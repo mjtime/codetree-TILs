@@ -8,7 +8,7 @@
 n, k, p, cnt = map(int, input().split())
 people = [0 for _ in range(n)] # 개발자
 people[p-1] = 1 # 제시된 감염인
-times_left = [2 for _ in range(n)] # 남은 감염 횟수
+times_left = [k for _ in range(n)] # 남은 감염 횟수
 arr_hand = [list(map(int, input().split())) for _ in range(cnt)] # 악수 정보
 arr_hand.sort(key = lambda x:x[0]) # 시간순 정렬
 
@@ -16,10 +16,13 @@ for i in range(cnt):
     x_person = arr_hand[i][1] - 1
     y_person = arr_hand[i][2] - 1
 
-    if people[x_person] == 1 and times_left[x_person]>0:
+    if (people[x_person] == 1 and people[y_person] == 1) and (times_left[x_person]>0 or times_left[y_person])>0:
+        times_left[x_person] -= 1
+        times_left[y_person] -= 1
+    elif people[x_person] == 1 and times_left[x_person]>0:
         people[y_person] = 1
         times_left[x_person] -= 1
-    if people[y_person] == 1 and times_left[y_person]>0:
+    elif people[y_person] == 1 and times_left[y_person]>0:
         people[x_person] = 1
         times_left[y_person] -= 1
 
