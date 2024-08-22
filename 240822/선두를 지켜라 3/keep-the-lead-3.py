@@ -2,7 +2,7 @@
 # N, M번 걸쳐 특정 속도, 시간만큼 이동
 # 매 시간 현재 선두인 사람 카운트
 # 총 카운트 출력
-MAX_LEN = 100000
+MAX_LEN = 100001
 n, m = map(int, input().split())
 arr_a = [0 for _ in range(MAX_LEN)]
 arr_b = [0 for _ in range(MAX_LEN)]
