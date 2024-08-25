@@ -10,6 +10,7 @@ num_dic = 3
 dics = list(input())
 
 cnt = 0
+check = False
 for d in dics:
     cnt += 1
     if d == 'F':
@@ -17,6 +18,7 @@ for d in dics:
         y = y+dys[num_dic]
 
         if x == 0 and y == 0:
+            check = True
             break
 
     elif d == 'L':
@@ -24,4 +26,7 @@ for d in dics:
     else:
         num_dic = (num_dic+1)%4
 
-print(cnt)
+if check:
+    print(cnt)
+else:
+    print(-1)
