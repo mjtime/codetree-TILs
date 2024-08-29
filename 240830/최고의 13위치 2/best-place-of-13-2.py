@@ -13,22 +13,14 @@ for i in range(n):
             for m in range(j+3, n-2):
                 num_coin3 = (arr[i][m] + arr[i][m+1] + arr[i][m+2])
                 max_num_coin = max(max_num_coin, num_coin1 + num_coin3)
-                # if i == n-1:
-                #     print(i, j, i, m, num_coin1, num_coin3)
                 if m == n-2:
                     check = True
         else:
             for k in range(i+1, n):
                 for l in range(n - 2):
                     num_coin2 = (arr[k][l] + arr[k][l+1] + arr[k][l+2])
-                    # print(num_coin1, num_coin2)
                     max_num_coin = max(max_num_coin, num_coin1 + num_coin2)
-                    # if i == n-1:
-                    #     print(i, j, k, l, num_coin1, num_coin2)
                 if i == n:
                     check = False
-        
-
-
 
 print(max_num_coin)
