@@ -14,17 +14,13 @@ def cal_digit(num):
         return 0, 0
 
 def check_carry(a, b, c):
-    # print("start:", a, b, c)
     while True:
         if a == 0 and b == 0 and c == 0:
             return True
         a, remain_a = cal_digit(a)
         b, remain_b = cal_digit(b)
         c, remain_c = cal_digit(c)
-        # print(a, remain_a)
-        # print(b, remain_b)
-        # print(c, remain_c)
-        # print('===============')
+
         if remain_a + remain_b + remain_c > 9:
             return False
 
@@ -32,7 +28,6 @@ for i in range(n-2):
     for j in range(i+1, n-1):
         for k in range(j+1, n):
             if check_carry(arr[i], arr[j], arr[k]):
-                # print(arr[i], arr[j], arr[k])
                 max_num = max(max_num, arr[i]+arr[j]+arr[k])
 
 print(max_num)
