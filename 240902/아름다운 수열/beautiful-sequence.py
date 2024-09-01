@@ -42,7 +42,7 @@ for i in range(n - m + 1):
     
     temp_arr3 = arr_m[::]
     while True:
-        if max(temp_arr3) <= min_n:
+        if min(temp_arr3) <= min_n:
             break
         temp_arr3 = [x-1 for x in temp_arr3]
         arr_permutaion3 = permute(temp_arr3)
@@ -51,5 +51,6 @@ for i in range(n - m + 1):
                 beautiful_idx.append(i+1)
 
 print(len(beautiful_idx))
+beautiful_idx.sort()
 for idx in beautiful_idx:
     print(idx)
