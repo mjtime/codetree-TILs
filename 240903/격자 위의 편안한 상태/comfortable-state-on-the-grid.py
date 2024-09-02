@@ -20,7 +20,7 @@ for i in range(m):
         ny = y + dy
         if in_range(nx, ny) and grid[nx][ny] == 1:
             cnt += 1
-    if cnt >= 3:
+    if cnt == 3:
         print(1)
     else:
         print(0)
