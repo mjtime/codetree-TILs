@@ -17,10 +17,11 @@ while end:
     for _ in range(k):
         nx = x+dxs[dir_num]
         ny = y+dys[dir_num]
-        x, y = nx, ny
+        if in_range(nx, ny):
+            x, y = nx, ny
         # print(num, x, y)
-        arr[x][y] = num
-        num += 1
+            arr[x][y] = num
+            num += 1
         if num > n*n:
             end = False
             break
