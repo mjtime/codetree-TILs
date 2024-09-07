@@ -39,21 +39,14 @@ def find_bomb():
                 if len(bomb_locations) >= 10:
                     return
 
-def test_grid():
-    for i in range(n):
-        for j in range(n):
-            print(bomb_grid_temp[i][j], end = ' ')
-        print()
-    print("===========================")
-
-
 def choose(curr_bomb):
     global ans, bomb_grid_temp
+    
     while True:
         if curr_bomb > len(bomb_locations):
             for i in range(len(bomb_locations)):
                 cal_bomb_range(bomb_locations[i][0], bomb_locations[i][1])
-            # test_grid()
+
             ans = max(ans, count_bomb_range())
             bomb_grid_temp = copy.deepcopy(bomb_grid)
             return
@@ -65,10 +58,7 @@ def choose(curr_bomb):
             choose(curr_bomb +1)
             
         return
+        
 find_bomb()
 choose(1)
 print(ans)
-# find_bomb()
-# print(bomb_locations)
-# cal_bomb_range(bomb_locations[0][0], bomb_locations[0][1])
-# test_grid()
