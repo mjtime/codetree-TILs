@@ -17,22 +17,17 @@ def check_lines(curr_idx):
             return True
     return False
 
-def choose(curr_num):
+def choose(curr_idx):
     global ans
-    if curr_num >= n:
-        ans = max(ans, len(select_lines))
-        # if len(select_lines)>2:
-        #     print(select_lines)
-        #     print("==================")
-        return
+    # 더 이상 선택할 수 없는 경우, 정답 업데이트
+    ans = max(ans, len(select_lines))
     
-    for curr_idx in range(n):
-        if not check_lines(curr_idx):
-            select_lines.append(curr_idx)
-            choose(curr_num+1)
-            select_lines.pop()
-        else:
-            choose(curr_num + 1)
+    # 선분의 시작점을 기준으로 가지치기
+    for next_idx in range(curr_idx, n):
+        if not check_lines(next_idx):  # 겹치지 않는 경우에만 선택
+            select_lines.append(next_idx)  # 선분 선택
+            choose(next_idx + 1)  # 다음 선분 선택
+            select_lines.pop()  # 선택 취소
     
     return
 
