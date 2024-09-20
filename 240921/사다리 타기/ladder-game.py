@@ -9,7 +9,9 @@ def change_orders(lst_line, lst_result):
 
 def choose(curr_num):
     global ans_num_of_line
-        
+    result = [x+1 for x in range(n)]
+    change_orders(choose_lines, result)
+
     if ans_result == result:
         ans_num_of_line = min(ans_num_of_line, len(choose_lines))
         return
@@ -19,9 +21,7 @@ def choose(curr_num):
             continue
 
         choose_lines.append(lines[i])
-        change_one_order(result, (lines[i][0]) - 1) # 줄에 의해 수 바꿈
         choose(curr_num + 1)
-        change_one_order(result, (choose_lines[-1][0]) - 1) # 마지막 줄에 의해 바뀐 수 돌려 놓음
         choose_lines.pop()
 
 
