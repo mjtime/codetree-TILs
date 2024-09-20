@@ -1,7 +1,5 @@
 def change_one_order(lst_result, idx):
-    temp = lst_result[idx]
-    lst_result[idx] = lst_result[idx+1]
-    lst_result[idx+1] = temp
+    lst_result[idx], lst_result[idx + 1] = lst_result[idx + 1], lst_result[idx]
 
 def change_orders(lst_line, lst_result):
     for line_idx, _ in lst_line:
@@ -9,8 +7,9 @@ def change_orders(lst_line, lst_result):
 
 def choose(curr_num):
     global ans_num_of_line
-    result = [x+1 for x in range(n)]
-    change_orders(choose_lines, result)
+
+    if curr_num >= ans_num_of_line:  # 현재 저장된 최소 가로줄 보다 더 많은 가로줄은 연산하지 않음
+            return
 
     if ans_result == result:
         ans_num_of_line = min(ans_num_of_line, len(choose_lines))
@@ -21,18 +20,22 @@ def choose(curr_num):
             continue
 
         choose_lines.append(lines[i])
-        choose(curr_num + 1)
-        choose_lines.pop()
+        change_one_order(result, (lines[i][0]) - 1)
 
+        choose(curr_num + 1)
+
+        change_one_order(result, (choose_lines[-1][0]) - 1)
+        choose_lines.pop()
 
     return
 
 n, m = map(int, input().split())
 lines = [list(map(int, input().split())) for _ in range(m)]
-ans_result = [x+1 for x in range(n)]
+
+ans_result = [x+1 for x in range(n)] # 목표 결과 값
 
 choose_lines = []
-result = [x+1 for x in range(n)]
+result = [x+1 for x in range(n)] # 계산을 위한 초기 값
 
 # 줄 높이에 따라 줄 정렬
 lines.sort(key = lambda x:(x[1], x[0]))
